@@ -1,0 +1,35 @@
+<div class="conteudo">
+    <div class="text-center mt-2">
+        <h1>
+            <strong>
+                CARDÁPIO
+            </strong>
+        </h1>
+    </div>
+    <div class="row justify-content-center">
+        <div *ngFor="let item of categoriasCompletas" class="col-lg-8 mt-1 mb-1">
+            <div class="text-center">
+                <h3>
+                    <strong>
+                        {{item.titulo}}
+                    </strong>
+                </h3>
+            </div>
+            <div class="row">
+                <div *ngFor="let produtos of item.produto; let i = index" class="col-6">
+                    <div [class]="i%2 !== 0 ? 'text-end' : ''">
+                        <span class="text-warning">
+                            DC {{produtos.id}}
+                        </span>
+                        - {{produtos.titulo}} <strong>{{formatarMoeda(produtos.valor)}}</strong>
+                    </div>
+                    <textarea [value]="produtos.descricao"
+                        [class]="i%2 !== 0 ? 'text-descricao text-end': 'text-descricao'" disabled></textarea>
+                </div>
+            </div>
+            <hr class="mt-2 mb-2">
+        </div>
+    </div>
+</div>
+
+<app-contato></app-contato>

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.custom-snackbar {
+    position: fixed;
+    bottom: 9%;
+    padding-bottom: 100px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

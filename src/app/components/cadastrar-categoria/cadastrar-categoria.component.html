@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-end">
+    <button class="btn btn-sm btn-warning" (click)="goTo('/auth/home')">Voltar</button>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card mt-2">
+            <div class="card-header text-center">
+                <h2>
+                    <strong>
+                        Cadastrar Categoria
+                    </strong>
+                </h2>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="form-label">Titulo</label>
+                            <input type="text" placeholder="Titulo da categoria" name="titulo"
+                                [(ngModel)]="payloadCategoria.titulo" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center">
+                                <button class="w-75 btn btn-sm btn-success mt-3"
+                                    (click)="criarCategoria()">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="categorias.length != 0" class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card mt-5 mb-3">
+            <div class="card-header text-center">
+                <h2>
+                    <strong>
+                        Categorias
+                    </strong>
+                </h2>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Produtos</th>
+                            <th scope="col">Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of categorias">
+                            <td>{{item.id}}</td>
+                            <td>{{item.titulo}}</td>
+                            <td>{{item.produto?.length}}</td>
+                            <td>
+                                <button class="btn btn-sm btn-primary"
+                                    (click)="abrirModalAtualizar(item)">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

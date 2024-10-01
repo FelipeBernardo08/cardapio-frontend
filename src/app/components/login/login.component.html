@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="text-center">
+                    <h3>
+                        <strong>
+                            Login - Delícias da Cheiloca
+                        </strong>
+                    </h3>
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" placeholder="E-mail" name="email" [(ngModel)]="credentials.email"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-12 mt-2">
+                            <input type="password" placeholder="Senha" name="password"
+                                [(ngModel)]="credentials.password" class="form-control" required>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-sm btn-success w-75"
+                                    (click)="login()">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

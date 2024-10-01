@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Updock&display=swap');
+
+.updock-regular {
+    font-family: "Updock", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fonte-titulo {
+    font-size: 20px;
+}
+
+.texto-promo {
+    font-size: 40px;
+    margin-right: 100px;
+}
+
+.sub-texto-promo {
+    font-size: 60px;
+    margin-left: 120px;
+}
+
+.font-3 {
+    font-size: 3svw;
+}
+
+.font-5 {
+    font-size: 5svw;
+}
+
+.conteudo-valores {
+    border-radius: 50px 0px 50px 0;
+}

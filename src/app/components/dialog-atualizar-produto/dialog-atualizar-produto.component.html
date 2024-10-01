@@ -1,0 +1,53 @@
+<div class="bg-success w-100 text-center text-light">
+    <h2>
+        <strong>
+            Atualizar Produto
+        </strong>
+    </h2>
+</div>
+<div class="d-flex justify-content-center">
+
+    <div class="card w-75">
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col-md-12 mt-2">
+                        <label for="" class="form-label">Categoria</label>
+                        <select class="form-select" name="fk_categoria" [(ngModel)]="data.fk_categoria" required>
+                            <option value="" selected disabled>Selecione</option>
+                            <option *ngFor="let item of categorias" [value]="item.id">{{item.titulo}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="" class="form-label">Titulo</label>
+                        <input type="text" class="form-control" placeholder="Digite o título" name="titulo"
+                            [(ngModel)]="data.titulo" required>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="" class="form-label">Valor</label>
+                        <input type="text" class="form-control" placeholder="Digite o valor" name="valor"
+                            [(ngModel)]="data.valor" required>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <label class="form-label">Descrição</label>
+                        <textarea name="descricao" placeholder="Digite uma descrição" rows="5"
+                            [(ngModel)]="data.descricao" required class="form-control"></textarea>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-sm btn-danger w-75" (click)="onClose()">Cancelar</button>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex justify-content-end">
+                                    <button class="btn btn-sm btn-success w-75"
+                                        (click)="atualizarProdutos()">Atualizar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

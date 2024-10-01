@@ -1,0 +1,12 @@
+.tabela {
+    max-height: 60svh;
+    overflow: auto;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.border-radius {
+    border-radius: 100%;
+}

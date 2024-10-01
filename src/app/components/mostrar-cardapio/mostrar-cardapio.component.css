@@ -1,0 +1,9 @@
+.text-descricao {
+    resize: none;
+    width: 100%;
+    border: none;
+    color: black;
+    background-color: none;
+    background: none;
+    font-size: 12px;
+}
