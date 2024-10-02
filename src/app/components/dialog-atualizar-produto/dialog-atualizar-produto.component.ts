@@ -22,6 +22,7 @@ export class DialogAtualizarProdutoComponent implements OnInit {
   categorias: Array<any> = [];
 
   ngOnInit(): void {
+    this.converterValorAtual();
     this.lerCategorias();
   }
 
@@ -36,12 +37,28 @@ export class DialogAtualizarProdutoComponent implements OnInit {
   }
 
   atualizarProdutos(): void {
-    let valor: number = parseFloat(this.data.valor.replace(',', '.'));
-    this.data.valor = valor;
+    this.data.valor = this.data.valor.replace('R$', '');
+    if (this.data.valor.includes(',')) {
+      let valor: number = parseFloat(this.data.valor.replace(',', '.'));
+      this.data.valor = valor;
+    }
     this.produtosService.atualizarProduto(this.data).subscribe((res: any) => {
+      this.converterValorAtual();
       this.snackMessageService.snackMessage('Produto atualizado com sucesso!');
     }, (error: any) => {
       this.snackMessageService.snackMessage(error.message);
     })
   }
+
+  converterValorAtual(): void {
+    this.data.valor = this.formatarMoeda(this.data.valor)
+  }
+
+  formatarMoeda(valor: number): string {
+    return valor.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+  }
+
 }

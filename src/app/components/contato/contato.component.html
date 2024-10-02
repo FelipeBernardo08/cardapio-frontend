@@ -1,10 +1,12 @@
-<div class="mt-5 text-center">
-    Faça seu pedido conosco:
-</div>
-<div class="d-flex justify-content-around mt-3">
-    <div *ngFor="let item of contato" class="text-center">
-        <button class="btn btn-sm btn-outline-primary">
-            {{item.titulo}}
-        </button>
+<div class="mt-5 mb-5">
+    <div class="text-center">
+        Faça seu pedido conosco:
+    </div>
+    <div class="d-flex justify-content-around mt-3">
+        <div *ngFor="let item of contato" class="text-center">
+            <button class="btn btn-sm btn-outline-primary">
+                {{item.titulo}}
+            </button>
+        </div>
     </div>
 </div>

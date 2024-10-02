@@ -27,6 +27,7 @@ export class DialogAtualizarComboComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.converterValoresAtuais();
     this.readCategoriasEProdutos();
   }
 
@@ -64,6 +65,12 @@ export class DialogAtualizarComboComponent implements OnInit {
     }
   }
 
+  converterValoresAtuais(): void {
+    this.data.valor_promocional_pix = this.formatarMoeda(this.data.valor_promocional_pix);
+    this.data.valor_promocional_dinheiro = this.formatarMoeda(this.data.valor_promocional_dinheiro);
+    this.data.valor_promocional_cartao = this.formatarMoeda(this.data.valor_promocional_cartao);
+  }
+
   checkChecked(id: any): boolean {
     return this.data.conteudo_combos.some((element: any) => element.fk_produto === id);
   }
@@ -82,9 +89,31 @@ export class DialogAtualizarComboComponent implements OnInit {
   }
 
   atualizarCombo(): void {
+    this.replaceEFormataValoresParaFloat();
     this.comboService.atualizarCombo(this.data).subscribe((resp: any) => {
       this.eventoAtualizarComboService.atualizarCombo();
+      this.converterValoresAtuais();
       this.snackMessageService.snackMessage('Combo atualizado com sucesso!');
     })
+  }
+
+  replaceEFormataValoresParaFloat(): void {
+    this.data.valor_promocional_pix = this.data.valor_promocional_pix.replace('R$', '');
+    this.data.valor_promocional_dinheiro = this.data.valor_promocional_dinheiro.replace('R$', '');
+    this.data.valor_promocional_cartao = this.data.valor_promocional_cartao.replace('R$', '');
+
+    if (this.data.valor_promocional_pix.includes(',')) {
+      let valor: number = parseFloat(this.data.valor_promocional_pix.replace(',', '.'));
+      this.data.valor_promocional_pix = valor;
+    }
+    if (this.data.valor_promocional_dinheiro.includes(',')) {
+      let valor: number = parseFloat(this.data.valor_promocional_dinheiro.replace(',', '.'));
+      this.data.valor_promocional_dinheiro = valor;
+    }
+    if (this.data.valor_promocional_cartao.includes(',')) {
+      let valor: number = parseFloat(this.data.valor_promocional_cartao.replace(',', '.'));
+      this.data.valor_promocional_cartao = valor;
+    }
+
   }
 }
