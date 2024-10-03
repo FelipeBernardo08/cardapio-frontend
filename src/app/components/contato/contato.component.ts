@@ -15,7 +15,7 @@ export class ContatoComponent implements OnInit {
   contato: Array<any> = [
     {
       titulo: 'Whatsapp',
-      link: 'https://wa.me/55981500256',
+      link: 'https://wa.me/5517981500256',
       image: '../../../assets/whatsapp.png',
       class: 'img-whatsapp botao-contato'
     },
