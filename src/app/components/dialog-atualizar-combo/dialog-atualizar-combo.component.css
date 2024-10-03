@@ -1,0 +1,5 @@
+.tamanho-dialog {
+    max-height: 60svh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

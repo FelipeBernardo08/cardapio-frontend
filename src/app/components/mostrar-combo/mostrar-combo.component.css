@@ -25,9 +25,9 @@
 }
 
 .font-5 {
-    font-size: 5svw;
+    font-size: 0.9rem;
 }
 
 .conteudo-valores {
-    border-radius: 50px 0px 50px 0;
+    border-radius: 80px 5px 80px 5px;
 }
