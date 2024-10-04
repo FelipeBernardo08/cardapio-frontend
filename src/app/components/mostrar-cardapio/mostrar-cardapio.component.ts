@@ -35,4 +35,10 @@ export class MostrarCardapioComponent implements OnInit {
   imprimir(): void {
     window.print();
   }
+
+  countRows(coment: string): number {
+    let result = coment.split('\n');
+    return result.length + 1;
+  }
+
 }

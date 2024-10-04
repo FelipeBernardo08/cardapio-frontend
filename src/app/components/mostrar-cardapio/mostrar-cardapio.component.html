@@ -24,7 +24,8 @@
                         - {{produtos.titulo}} <strong>{{formatarMoeda(produtos.valor)}}</strong>
                     </div>
                     <textarea [value]="produtos.descricao"
-                        [class]="i%2 !== 0 ? 'text-descricao text-end': 'text-descricao'" disabled></textarea>
+                        [class]="i%2 !== 0 ? 'text-descricao text-end': 'text-descricao'"
+                        [rows]="countRows(produtos.descricao)" disabled></textarea>
                 </div>
             </div>
             <hr class="mt-2 mb-2">
