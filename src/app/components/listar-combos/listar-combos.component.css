@@ -2,3 +2,8 @@
     border: 0.5px solid green;
     cursor: pointer;
 }
+
+.loader {
+    width: 8%;
+    margin-top: 5svh;
+}

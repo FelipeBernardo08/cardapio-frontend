@@ -45,6 +45,8 @@ export class CadastrarCombosComponent implements OnInit {
 
   combos: Array<any> = [];
 
+  loader: boolean = true;
+
   goTo(url: string): void {
     this.router.navigate([url]);
   }
@@ -65,6 +67,10 @@ export class CadastrarCombosComponent implements OnInit {
   lerCombosCompleto(): void {
     this.comboService.lerCombosEProdutos().subscribe((resp: any) => {
       this.combos = resp;
+      this.loader = false;
+    }, error => {
+      this.snackMessageService.snackMessage(error.error.error);
+      this.loader = false;
     })
   }
 

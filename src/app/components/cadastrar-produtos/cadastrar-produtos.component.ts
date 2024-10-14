@@ -29,6 +29,8 @@ export class CadastrarProdutosComponent implements OnInit {
 
   produtosDefault: Array<any> = [];
 
+  loader: boolean = true;
+
   payloadProdutos: any = {
     titulo: '',
     descricao: '',
@@ -53,8 +55,10 @@ export class CadastrarProdutosComponent implements OnInit {
     this.produtosService.lerProdutos().subscribe((resp: any) => {
       this.produtos = resp;
       this.produtosDefault = resp;
+      this.loader = false;
     }, (error: any) => {
       this.snackMessageService.snackMessage(error.message);
+      this.loader = false;
     })
   }
 

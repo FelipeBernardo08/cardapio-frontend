@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
+  loader: boolean = false;
 
   ngOnInit(): void {
     sessionStorage.getItem('token') != null ? this.router.navigate(['/auth/home']) : ''
@@ -27,14 +28,17 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     if (this.credentials.login != '' && this.credentials.password != '') {
+      this.loader = true;
       this.loginService.login(this.credentials).subscribe((resp: any) => {
         this.snackMessageService.snackMessage('Sucesso!')
         sessionStorage.setItem('token', resp)
         this.router.navigate(['/auth/home']);
       }, (error: any) => {
+        this.loader = false;
         this.snackMessageService.snackMessage(error.error.error)
       })
     } else {
+      this.loader = false;
       this.snackMessageService.snackMessage('Preencha todos os campos');
     }
   }
