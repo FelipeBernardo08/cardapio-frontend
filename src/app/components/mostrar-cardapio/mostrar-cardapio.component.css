@@ -11,3 +11,8 @@
 .texto-titulo {
     text-transform: uppercase;
 }
+
+.loader {
+    width: 8%;
+    margin-top: 5svh;
+}

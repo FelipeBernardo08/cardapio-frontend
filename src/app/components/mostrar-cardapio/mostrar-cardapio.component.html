@@ -1,4 +1,10 @@
-<div class="conteudo">
+<div *ngIf="loader">
+    <div class="d-flex justify-content-center">
+        <img src="../../../assets/loader.gif" class="loader">
+    </div>
+</div>
+
+<div *ngIf="!loader" class="conteudo">
     <div class="text-center mt-2">
         <h1>
             <strong>

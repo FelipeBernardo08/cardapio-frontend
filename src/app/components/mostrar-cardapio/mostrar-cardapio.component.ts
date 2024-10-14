@@ -14,6 +14,7 @@ export class MostrarCardapioComponent implements OnInit {
   ) { }
 
   categoriasCompletas: Array<any> = [];
+  loader: boolean = true;
 
   ngOnInit(): void {
     this.lerCategoriasCompletas();
@@ -22,6 +23,7 @@ export class MostrarCardapioComponent implements OnInit {
   lerCategoriasCompletas(): void {
     this.categoriaService.lerCategoriasPublico().subscribe((resp: any) => {
       this.categoriasCompletas = resp;
+      this.loader = false;
     })
   }
 
