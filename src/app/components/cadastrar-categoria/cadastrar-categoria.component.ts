@@ -25,6 +25,8 @@ export class CadastrarCategoriaComponent implements OnInit {
 
   categorias: Array<any> = [];
 
+  loader: boolean = true;
+
   ngOnInit(): void {
     this.lerCategorias();
   }
@@ -46,6 +48,7 @@ export class CadastrarCategoriaComponent implements OnInit {
   lerCategorias(): void {
     this.categoriaService.lerCategorias().subscribe((resp: any) => {
       this.categorias = resp;
+      this.loader = false;
     }, (error: any) => {
       this.snackMessageService.snackMessage(error.error.error);
     })

@@ -31,3 +31,8 @@
 .conteudo-valores {
     border-radius: 80px 5px 80px 5px;
 }
+
+.loader {
+    width: 8%;
+    margin-top: 5svh;
+}

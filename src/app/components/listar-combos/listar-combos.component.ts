@@ -15,6 +15,7 @@ export class ListarCombosComponent implements OnInit {
   ) { }
 
   combos: Array<any> = [];
+  loader: boolean = true;
 
   ngOnInit(): void {
     this.lerCombos();
@@ -23,6 +24,7 @@ export class ListarCombosComponent implements OnInit {
   lerCombos(): void {
     this.comboService.lerCombosEProdutosPublico().subscribe((resp: any) => {
       this.combos = resp;
+      this.loader = false;
     })
   }
 

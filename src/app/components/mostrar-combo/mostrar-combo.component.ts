@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CombosService } from 'src/app/services/combos.service';
 
 @Component({
@@ -9,10 +10,12 @@ import { CombosService } from 'src/app/services/combos.service';
 export class MostrarComboComponent implements OnInit {
 
   constructor(
-    private comboService: CombosService
+    private comboService: CombosService,
+    private router: Router
   ) { }
 
   combos: any;
+  loader: boolean = true;
 
   ngOnInit(): void {
     this.lerCombos();
@@ -21,6 +24,7 @@ export class MostrarComboComponent implements OnInit {
   lerCombos(): void {
     this.comboService.lerComboEProdutoPublico(this.getIdUrl()).subscribe((resp: any) => {
       this.combos = resp[0];
+      this.loader = false;
     })
   }
 
@@ -35,6 +39,10 @@ export class MostrarComboComponent implements OnInit {
     let url: string = window.location.href;
     let lastSlash: number = url.lastIndexOf('/');
     return url.substring(lastSlash + 1);
+  }
+
+  goTo(): void {
+    this.router.navigate(['/listar-combos']);
   }
 
 }
