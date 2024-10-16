@@ -25,6 +25,8 @@ export class ListarCombosComponent implements OnInit {
     this.comboService.lerCombosEProdutosPublico().subscribe((resp: any) => {
       this.combos = resp;
       this.loader = false;
+    }, error => {
+      this.loader = false;
     })
   }
 

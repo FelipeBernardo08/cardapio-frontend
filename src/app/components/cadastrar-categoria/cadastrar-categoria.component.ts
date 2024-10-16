@@ -50,6 +50,7 @@ export class CadastrarCategoriaComponent implements OnInit {
       this.categorias = resp;
       this.loader = false;
     }, (error: any) => {
+      this.loader = false;
       this.snackMessageService.snackMessage(error.error.error);
     })
   }
