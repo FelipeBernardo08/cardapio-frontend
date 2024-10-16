@@ -1,18 +1,18 @@
 <div class="row justify-content-center">
-    <div *ngIf="loader">
+    <div *ngIf="loader" class="col-lg-6">
         <div class="d-flex justify-content-center">
             <img src="../../../assets/loader.gif" class="loader">
         </div>
     </div>
 
-    <div *ngIf="!loader">
+    <div *ngIf="!loader" class="col-lg-6">
         <div *ngIf="combos.length == 0">
             <div class="text-center">
                 Não existem combos cadastrado no momento, tente novamente mais tarde!
             </div>
         </div>
 
-        <div *ngIf="combos.length != 0" class="col-lg-6 ">
+        <div *ngIf="combos.length != 0">
             <div *ngFor="let item of combos" class="mt-1 mb-1">
                 <div class="card">
                     <div class="card-body">

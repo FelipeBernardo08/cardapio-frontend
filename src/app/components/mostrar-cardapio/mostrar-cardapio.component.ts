@@ -24,6 +24,8 @@ export class MostrarCardapioComponent implements OnInit {
     this.categoriaService.lerCategoriasPublico().subscribe((resp: any) => {
       this.categoriasCompletas = resp;
       this.loader = false;
+    }, error => {
+      this.loader = false;
     })
   }
 

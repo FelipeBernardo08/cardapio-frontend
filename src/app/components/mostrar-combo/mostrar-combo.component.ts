@@ -25,6 +25,8 @@ export class MostrarComboComponent implements OnInit {
     this.comboService.lerComboEProdutoPublico(this.getIdUrl()).subscribe((resp: any) => {
       this.combos = resp[0];
       this.loader = false;
+    }, error => {
+      this.loader = false;
     })
   }
 
