@@ -21,3 +21,19 @@ body {
 .cursor-pointer {
     cursor: pointer;
 }
+
+.espaco {
+    padding-top: 12svh;
+    padding-bottom: 12svh;
+}
+
+@media print {
+    .nao-imprimir {
+        display: none;
+    }
+
+    .espaco {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
