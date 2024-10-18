@@ -76,15 +76,14 @@ export class CadastrarCombosComponent implements OnInit {
 
   cadastrarCombo(): void {
 
-    let valorDinheiro: number = parseFloat(this.payloadCombos.valor_promocional_dinheiro.replace(',', '.'));
-    let valorPix: number = parseFloat(this.payloadCombos.valor_promocional_pix.replace(',', '.'));
-    let valorCartao: number = parseFloat(this.payloadCombos.valor_promocional_cartao.replace(',', '.'));
+    this.payloadCombos.valor_promocional_pix = 0;
+    this.payloadCombos.valor_promocional_dinheiro = 0;
+    this.payloadCombos.valor_promocional_cartao = 0;
 
-    this.payloadCombos.valor_promocional_pix = valorPix;
-    this.payloadCombos.valor_promocional_dinheiro = valorDinheiro;
-    this.payloadCombos.valor_promocional_cartao = valorCartao;
+    let idCombo = 0;
 
     this.comboService.criarCombo(this.payloadCombos).subscribe((resp: any) => {
+      idCombo = resp.id;
       this.conteudoArray.forEach((element: any, i: any) => {
         let payload = {
           fk_produto: element.id,
@@ -93,8 +92,10 @@ export class CadastrarCombosComponent implements OnInit {
         this.comboService.criarConteudoCombo(payload).subscribe((resp: any) => {
         })
         if ((i + 1) == this.conteudoArray.length) {
-          this.lerCombosCompleto();
-          this.snackMessageService.snackMessage('Combo criado com sucesso!');
+          this.comboService.atualizarValorCombo(idCombo).subscribe((resp: any) => {
+            this.lerCombosCompleto();
+            this.snackMessageService.snackMessage('Combo criado com sucesso!');
+          })
         }
       })
     });
