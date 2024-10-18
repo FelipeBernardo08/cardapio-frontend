@@ -64,4 +64,8 @@ export class CombosService {
   public desativarCombo(id: number): Observable<any> {
     return this.http.put(`${this.baseUrl}/desativar-combo/${id}`, '', { headers: this.getHeaders() });
   }
+
+  public atualizarValorCombo(id: number): Observable<any> {
+    return this.http.put(`${this.baseUrl}/atualizar-valor-combo/${id}`, '', { headers: this.getHeaders() });
+  }
 }
